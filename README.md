@@ -8,15 +8,9 @@
   <a href="https://play.google.com/store/apps/details?id=com.zaeri.sabourinia.dogbreedidentifier"><strong>View Dog Breed Identifier on Google Play</strong></a>
 </p>
 
-An Android AI application demonstrating on-device dog-breed classification with Kotlin, Jetpack Compose, and TensorFlow Lite. Users can select a gallery image or capture a photo, run local inference, and inspect the predicted breed, confidence, preprocessing time, inference time, and total latency.
+An Android portfolio project demonstrating on-device dog-breed classification with Kotlin, Jetpack Compose, and TensorFlow Lite. Users can select a gallery image or capture a photo, run local inference, and inspect the predicted breed, confidence, preprocessing time, inference time, and total latency.
 
-The complete production application is available on [Google Play](https://play.google.com/store/apps/details?id=com.zaeri.sabourinia.dogbreedidentifier), published by **Alireza Zaeri & Fatemeh Sabourinia**. This public repository contains a simplified demonstration interface that presents the core Android and on-device AI engineering workflow. The production UI source code, custom visual design, animations, audio, and proprietary presentation assets are intentionally not included. Official application screenshots are provided only to demonstrate the complete published user experience.
-
-## Repository scope
-
-The repository includes the Android inference workflow, model and labels, camera and gallery input, `FileProvider` integration, debug benchmarking, tests, and a deliberately simplified Compose UI. It does not include the complete production interface, production navigation or settings, product-only animation or audio, or production share and exit implementations.
-
-The logo and screenshots under `docs/images/` are approved presentation assets from the published application. Screenshots of the simplified public demo are intentionally not included.
+The complete production application is available on [Google Play](https://play.google.com/store/apps/details?id=com.zaeri.sabourinia.dogbreedidentifier), published by **Alireza Zaeri & Fatemeh Sabourinia**. This public repository contains a simplified portfolio interface that demonstrates the core Android and on-device AI engineering workflow. The production UI source code, custom visual design, animations, audio, and proprietary presentation assets are intentionally not included. Official application screenshots are provided only to demonstrate the complete published user experience.
 
 ## Production application
 
@@ -108,7 +102,7 @@ The empty directory is represented by its own [benchmark image instructions](app
 - TensorFlow Lite Support 0.4.4
 - TensorFlow Lite GPU runtime 2.16.1
 - Android `FileProvider`, camera permission, and activity-result APIs
-- JUnit 4 and AndroidX instrumentation test scaffolding
+- JUnit 4 test scaffolding
 
 ## Project structure
 
@@ -127,19 +121,9 @@ app/src/main/
 
 docs/
 └── images/                     # approved logo and official listing screenshots
-
-MODEL_CARD.md                   # model contract, provenance, and limitations
-PRIVACY.md                      # public demo privacy details
-SECURITY.md                     # security reporting guidance
-THIRD_PARTY_NOTICES.md          # dependency and dataset acknowledgements
-CONTRIBUTING.md                 # contribution guidelines
-CODE_OF_CONDUCT.md              # community standards
-docs/BUILDING.md                # build and troubleshooting guide
 ```
 
 ## Build
-
-For detailed environment setup and solutions to common SDK, NDK, JDK, Gradle, and device issues, see the [Android build and troubleshooting guide](docs/BUILDING.md).
 
 Requirements:
 
@@ -153,23 +137,17 @@ Clone the repository, then either let Android Studio create the ignored `local.p
 cp local.properties.example local.properties
 ```
 
-Build, test, lint, and compile the instrumentation APK with:
+Build and test with:
 
 ```bash
-./gradlew :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest
-```
-
-Running instrumentation tests requires a connected Android device or emulator:
-
-```bash
-./gradlew :app:connectedDebugAndroidTest
+./gradlew :app:assembleDebug :app:testDebugUnitTest
 ```
 
 The debug APK is generated locally under `app/build/outputs/apk/debug/` and is ignored by Git. Do not commit SDK paths, signing configuration, keystores, APKs, or App Bundles.
 
 ## Dataset attribution
 
-Model training used the [Kaggle Dog Breed Identification competition dataset](https://www.kaggle.com/c/dog-breed-identification), which is based on the canine subset associated with [Stanford Dogs](https://vision.stanford.edu/aditya86/ImageNetDogs/) and [ImageNet](https://www.image-net.org/).
+Model training used the [Kaggle Dog Breed Identification competition dataset](https://www.kaggle.com/c/dog-breed-identification), which is based on the canine subset associated with [Stanford Dogs](http://vision.stanford.edu/aditya86/ImageNetDogs/) and [ImageNet](https://www.image-net.org/).
 
 The original training dataset is **not redistributed** in this repository. Obtain data from the original sources and comply with their terms and attribution requirements. The TensorFlow Lite model included in this repository was trained and exported by the project authors.
 
@@ -184,8 +162,6 @@ The original training dataset is **not redistributed** in this repository. Obtai
 
 The result is an estimated visual classification, not veterinary, medical, ancestry, or legal advice. Mixed breeds and image conditions can affect predictions.
 
-See [MODEL_CARD.md](MODEL_CARD.md) for intended use, model inputs and outputs, provenance, and limitations.
-
 ## Security and privacy
 
 - Images are processed locally by the demo and are not sent to a prediction server.
@@ -194,19 +170,13 @@ See [MODEL_CARD.md](MODEL_CARD.md) for intended use, model inputs and outputs, p
 - Example configuration files contain placeholders only.
 - Camera captures use the app-specific external pictures directory exposed through a scoped `FileProvider` URI.
 
-See [PRIVACY.md](PRIVACY.md) for the public demo's image handling, local benchmark data, permissions, and data-collection details.
-
-Security concerns can be reported using the guidance in [SECURITY.md](SECURITY.md).
-
 ## Machine-learning repository relationship
 
 This repository focuses on Android deployment and on-device inference. Dataset preparation, model training, evaluation, and TensorFlow Lite export are documented in the companion Machine Learning repository: [Dog Breed Recognition](https://github.com/alirezazaeri/Dog-Breed-Recognition).
 
-## Licence
+## Licence status
 
-Original public source code and documentation in this repository are available under the [MIT License](LICENSE).
-
-The production user interface, excluded production source, application branding, screenshots, bundled model, pretrained components, datasets, and third-party dependencies may remain subject to separate terms. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+No open-source licence has been selected. The repository remains under default copyright; public visibility does not grant reuse or redistribution rights. Third-party dependencies and data sources remain subject to their own terms.
 
 ## Authors
 
